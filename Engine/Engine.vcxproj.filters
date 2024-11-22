@@ -7,6 +7,36 @@
     <Filter Include="src\interfaces">
       <UniqueIdentifier>{4cee6110-d0b8-48e8-9abc-b574bbc8fb02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\interfaces\Graphics">
+      <UniqueIdentifier>{edb7d115-e8cb-4d50-990b-53ed7eacd2e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\others">
+      <UniqueIdentifier>{66bc5074-947d-4f7b-b402-4c83c3da3412}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\others\Math">
+      <UniqueIdentifier>{6a51023b-5e8f-40c1-92c7-6a295a57ccd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl">
+      <UniqueIdentifier>{eb43daa9-b09c-4c5f-b3c9-ddc7dc1dabef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp">
+      <UniqueIdentifier>{31a7d289-483d-455c-bda6-e4ae5055cb2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl\ContainerImpl">
+      <UniqueIdentifier>{4ed6e434-4806-438c-a7bc-1bedbefe7118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl\SystemImpl">
+      <UniqueIdentifier>{669c4fde-d1c2-4b42-afba-48e891d2da3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp\System">
+      <UniqueIdentifier>{177ae609-d6e8-42f3-947f-1136568f9357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\impl\AllocatorImpl">
+      <UniqueIdentifier>{fa60e680-6cf3-4f72-b8de-0e897e5b3ce0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cpp\Allocator">
+      <UniqueIdentifier>{e0f26ae8-0f3f-44bc-be38-8102481455bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IAllocator.h">
@@ -30,5 +60,64 @@
     <ClInclude Include="IAsset.h">
       <Filter>src\interfaces</Filter>
     </ClInclude>
+    <ClInclude Include="IEditorInterface.h">
+      <Filter>src\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IEditorUIWidget.h">
+      <Filter>src\interfaces\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>src\others\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>src\interfaces\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GColor.h">
+      <Filter>src\others</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>src\impl\ContainerImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject.h">
+      <Filter>src\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMemoryAllocator.h">
+      <Filter>src\impl\SystemImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h">
+      <Filter>src\impl\AllocatorImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>src\others</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>src\impl</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Object.cpp">
+      <Filter>src\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicArray.cpp">
+      <Filter>src\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.cpp">
+      <Filter>src\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMemoryAllocator.cpp">
+      <Filter>src\cpp\System</Filter>
+    </ClCompile>
+    <ClCompile Include="AlignedAllocator.cpp">
+      <Filter>src\cpp\Allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolAllocator.cpp">
+      <Filter>src\cpp\Allocator</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>src\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

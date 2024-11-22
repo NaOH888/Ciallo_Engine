@@ -6,6 +6,8 @@ public:
 
 	virtual void* alignedMemoryAlloc(unsigned long long sz, int alignment) = 0;
 
+	virtual void tryFree(void* adress) = 0;
+
 };
 
 class IStackAllocator {
@@ -30,6 +32,7 @@ public:
 };
 
 class IDoubleEndStackAllocator {
+public:
 
 	virtual const void* getStackTop1() = 0;
 
@@ -62,8 +65,9 @@ class IDoubleEndStackAllocator {
 };
 
 class IPoolAllocator {
+public:
 
-	virtual void* memoryAlloc(unsigned long long sz) = 0;
+	virtual void* memoryAlloc() = 0;
 
 	virtual unsigned long long getUnitSize() = 0;
 
@@ -71,9 +75,8 @@ class IPoolAllocator {
 
 	virtual int getUsableUnitCount() = 0;
 
-	virtual bool canAlloc(unsigned long long sz) = 0;
-
 	virtual void clear() = 0;
+
 
 	virtual void free(void*) = 0;
 
@@ -81,9 +84,11 @@ class IPoolAllocator {
 
 	virtual void freeUnit(int index) = 0;
 
-	virtual void setFullPoolSize(unsigned long long) = 0;
+	virtual void setCapacity(int) = 0;
 	
 	virtual unsigned long long getFullPoolSize() = 0;
+
+	virtual ~IPoolAllocator() {}
 
 	
 };

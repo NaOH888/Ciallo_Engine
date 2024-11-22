@@ -1,6 +1,7 @@
 #pragma once
+#include "IObject.h"
 
-template <typename T> class IIterator {
+template <typename T> class IIterator : public Object{
 
 public:
 
@@ -8,26 +9,25 @@ public:
 
 	virtual const T* get() = 0;
 
-	virtual bool operator==(IIterator<T>&&) = 0;
+	virtual bool equals(IIterator<T>*) = 0;
 };
 
-template <typename T> class IIterable {
+template <typename T> class IIterable : public Object{
+
+public:
+	virtual void start(IIterator<T>**) const = 0;
+
+	virtual void end(IIterator<T>**) const = 0;
+
+};
+
+template <typename T> class IDynamicArray : public IIterable<T> {
 
 public:
 
-	virtual IIterator<T> start() const = 0;
+	virtual void appendLast(T&&) = 0;
 
-	virtual IIterator<T> end() const = 0;
-
-};
-
-template <typename T> class IDynamicArray : public IIterable<T>{
-
-public:
-
-	virtual void appendLast(T) = 0;
-
-	virtual void appendHead(T) = 0;
+	virtual void appendHead(T&&) = 0;
 
 	virtual int getCapacity() = 0;
 
@@ -35,9 +35,9 @@ public:
 
 	virtual void pop() = 0;
 
-	virtual void remove(IIterator<T>) = 0;
+	virtual void remove(IIterator<T>*) = 0;
 
-	virtual void swap(IIterator<T>, IIterator<T>) = 0;
+	virtual void swap(IIterator<T>*, IIterator<T>*) = 0;
 
 	virtual bool isEmpty() = 0;
 
@@ -71,7 +71,7 @@ public:
 
 };
 
-template <typename T> class IStack {
+template <typename T> class IStack : public Object{
 
 public:
 
@@ -91,7 +91,7 @@ public:
 
 };
 
-template <typename T> class IQuene {
+template <typename T> class IQuene : public Object{
 
 public:
 
@@ -134,7 +134,7 @@ public:
 
 };
 
-template <typename K, typename V> class IPair {
+template <typename K, typename V> class IPair : public Object{
 
 public:
 
@@ -173,5 +173,43 @@ public:
 	virtual const ISet<K>* getKeySet() = 0;
 
 	
+
+};
+
+		
+
+template <typename T> class ITreeLift : public IIterator<T> {
+
+public:
+
+	virtual bool isLastKid() = 0;
+
+	virtual bool isLeaf() = 0;
+
+	virtual bool hasParent() = 0;
+
+	virtual void toLeaf() = 0;
+
+	virtual void toKid() = 0;
+
+	virtual void toParent() = 0;
+
+	virtual void toRoot() = 0;
+
+};
+
+template <typename T> class ITree : public IIterable<T>{
+
+
+public:
+
+	virtual ITreeLift<T> getRoot() = 0;
+
+	virtual void setValue(T val, ITreeLift<T> node) = 0;
+
+	virtual void addToKid(ITreeLift<T> parent, T val) = 0;
+
+	virtual ITreeLift<T> search(T val) = 0;
+
 
 };

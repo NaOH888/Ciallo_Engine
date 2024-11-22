@@ -2,6 +2,7 @@
 
 class IEditorFileSystem;
 class IString;
+template <typename T> class IIterator;
 
 class IEditorAsset {
 
@@ -13,5 +14,8 @@ class IEditorAsset {
 
 	virtual const IString* getFileMetaPath() = 0;
 
+	//要用这种方式进行遍历吗？
+	virtual IIterator<IEditorAsset> getReferenceStart() = 0;
 
+	virtual IIterator<IEditorAsset> getReferenceEnd() = 0;
 };
